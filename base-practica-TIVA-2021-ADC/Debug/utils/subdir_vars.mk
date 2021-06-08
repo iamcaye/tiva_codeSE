@@ -2,8 +2,6 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-SHELL = cmd.exe
-
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../utils/RunTimeStatsConfig.c \
@@ -24,16 +22,16 @@ OBJS += \
 ./utils/uartstdio.obj 
 
 OBJS__QUOTED += \
-"utils\RunTimeStatsConfig.obj" \
-"utils\cmdline.obj" \
-"utils\cpu_usage.obj" \
-"utils\uartstdio.obj" 
+"utils/RunTimeStatsConfig.obj" \
+"utils/cmdline.obj" \
+"utils/cpu_usage.obj" \
+"utils/uartstdio.obj" 
 
 C_DEPS__QUOTED += \
-"utils\RunTimeStatsConfig.d" \
-"utils\cmdline.d" \
-"utils\cpu_usage.d" \
-"utils\uartstdio.d" 
+"utils/RunTimeStatsConfig.d" \
+"utils/cmdline.d" \
+"utils/cpu_usage.d" \
+"utils/uartstdio.d" 
 
 C_SRCS__QUOTED += \
 "../utils/RunTimeStatsConfig.c" \

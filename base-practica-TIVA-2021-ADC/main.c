@@ -237,6 +237,11 @@ static int32_t messageReceived(uint8_t message_type, void *parameters, int32_t p
             if (check_and_extract_command_param(parameters, parameterSize, &colores, sizeof(colores))>0)
             {
 				RGBEnable();
+				int i = 0;
+				for(i = 0 ; i < 3 ; i++)
+				{
+				    colores[i] = colores[i]*255;
+				}
                 RGBColorSet(colores); //Dispara la conversion (por software)
             }
             else
@@ -321,7 +326,7 @@ int main(void)
 
 	GPIOIntTypeSet(GPIO_PORTF_BASE, ALL_BUTTONS, GPIO_BOTH_EDGES);
 	MAP_IntPrioritySet(INT_GPIOF, configMAX_SYSCALL_INTERRUPT_PRIORITY);
-	//GPIOIntEnable(GPIO_PORTF_BASE, ALL_BUTTONS);
+	GPIOIntEnable(GPIO_PORTF_BASE, ALL_BUTTONS);
 
 
 	IntEnable(INT_GPIOF);

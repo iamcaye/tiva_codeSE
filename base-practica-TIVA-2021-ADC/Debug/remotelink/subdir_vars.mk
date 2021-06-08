@@ -2,8 +2,6 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-SHELL = cmd.exe
-
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../remotelink/crc.c \
@@ -27,18 +25,18 @@ OBJS += \
 ./remotelink/usb_serial_structs.obj 
 
 OBJS__QUOTED += \
-"remotelink\crc.obj" \
-"remotelink\remotelink.obj" \
-"remotelink\serialprotocol.obj" \
-"remotelink\usb_dev_serial.obj" \
-"remotelink\usb_serial_structs.obj" 
+"remotelink/crc.obj" \
+"remotelink/remotelink.obj" \
+"remotelink/serialprotocol.obj" \
+"remotelink/usb_dev_serial.obj" \
+"remotelink/usb_serial_structs.obj" 
 
 C_DEPS__QUOTED += \
-"remotelink\crc.d" \
-"remotelink\remotelink.d" \
-"remotelink\serialprotocol.d" \
-"remotelink\usb_dev_serial.d" \
-"remotelink\usb_serial_structs.d" 
+"remotelink/crc.d" \
+"remotelink/remotelink.d" \
+"remotelink/serialprotocol.d" \
+"remotelink/usb_dev_serial.d" \
+"remotelink/usb_serial_structs.d" 
 
 C_SRCS__QUOTED += \
 "../remotelink/crc.c" \

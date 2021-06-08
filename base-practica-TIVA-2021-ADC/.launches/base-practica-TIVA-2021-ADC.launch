@@ -4,7 +4,7 @@
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROGRAM.Tiva TM4C123GH6PM.ccxml.Stellaris In-Circuit Debug Interface/CORTEX_M4_0" value="${build_artifact:base-practica-TIVA-2021-ADC}"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROJECT.Tiva TM4C123GH6PM.ccxml.Stellaris In-Circuit Debug Interface/CORTEX_M4_0" value="base-practica-TIVA-2021-ADC"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_TARGET_CONFIG" value="${target_config_active_default:base-practica-TIVA-2021-ADC}"/>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.Tiva TM4C123GH6PM.ccxml.Stellaris In-Circuit Debug Interface/CORTEX_M4_0" value="C:\Users\cayet\Documents\Apuntes\3_SE\2Q\SisEmp\Proyecto_1\base-practica-TIVA-2021-ADC\Debug\base-practica-TIVA-2021-ADC.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.Tiva TM4C123GH6PM.ccxml.Stellaris In-Circuit Debug Interface/CORTEX_M4_0" value="/home/gise/dev/tiva_codeSE/base-practica-TIVA-2021-ADC/Debug/base-practica-TIVA-2021-ADC.out"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/base-practica-TIVA-2021-ADC"/>
 </listAttribute>
