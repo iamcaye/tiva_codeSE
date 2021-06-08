@@ -121,11 +121,8 @@ void ButtonsISR (void)
 	BaseType_t xHigherPriorityTaskWoken=pdFALSE;
     uint32_t status;
 
-    if(sondeo)
-    {
-        status = GPIOPinRead(GPIO_PORTF_BASE, ALL_BUTTONS);
-        xQueueSendFromISR(botones, (void *)&status, &xHigherPriorityTaskWoken);
-    }
+    status = GPIOPinRead(GPIO_PORTF_BASE, ALL_BUTTONS);
+    xQueueSendFromISR(botones, (void *)&status, &xHigherPriorityTaskWoken);
     GPIOIntClear(GPIO_PORTF_BASE, ALL_BUTTONS);
 	portEND_SWITCHING_ISR(xHigherPriorityTaskWoken);
 }
@@ -189,6 +186,7 @@ static portTASK_FUNCTION(ADCTask,pvParameters)
 static int32_t messageReceived(uint8_t message_type, void *parameters, int32_t parameterSize)
 {
     int32_t status=0;   //Estado de la ejecucion (positivo, sin errores, negativo si error)
+    bool checked;
 
     //Comprueba el tipo de mensaje
     switch (message_type)
@@ -238,7 +236,7 @@ static int32_t messageReceived(uint8_t message_type, void *parameters, int32_t p
             uint32_t colores[3] = {0, 0, 0};
             if (check_and_extract_command_param(parameters, parameterSize, &colores, sizeof(colores))>0)
             {
-								RGBEnable();
+				RGBEnable();
                 RGBColorSet(colores); //Dispara la conversion (por software)
             }
             else
@@ -255,7 +253,18 @@ static int32_t messageReceived(uint8_t message_type, void *parameters, int32_t p
         break;
         case MESSAGE_BUTTONS:
         {
-            if (check_and_extract_command_param(parameters, parameterSize, &sondeo, sizeof(sondeo))<0)
+            if (check_and_extract_command_param(parameters, parameterSize, &checked, sizeof(checked))>0)
+            {
+                if(checked)
+                {
+                    GPIOIntEnable(GPIO_PORTF_BASE, ALL_BUTTONS);
+                }
+                else
+                {
+                    GPIOIntDisable(GPIO_PORTF_BASE, ALL_BUTTONS);
+                }
+            }
+            else
             {
                 status=PROT_ERROR_INCORRECT_PARAM_SIZE; //Devuelve un error
             }
@@ -312,7 +321,7 @@ int main(void)
 
 	GPIOIntTypeSet(GPIO_PORTF_BASE, ALL_BUTTONS, GPIO_BOTH_EDGES);
 	MAP_IntPrioritySet(INT_GPIOF, configMAX_SYSCALL_INTERRUPT_PRIORITY);
-	GPIOIntEnable(GPIO_PORTF_BASE, ALL_BUTTONS);
+	//GPIOIntEnable(GPIO_PORTF_BASE, ALL_BUTTONS);
 
 
 	IntEnable(INT_GPIOF);

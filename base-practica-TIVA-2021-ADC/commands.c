@@ -202,6 +202,9 @@ static int Cmd_led(int argc, char *argv[])
 	        return 0;
 	    }
 
+        RGBDisable();
+        GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3);
+
 		if (0==strncmp( argv[2], "on",2))
 		{
 			UARTprintf("Enciendo el LED\r\n");
@@ -314,6 +317,7 @@ static int Cmd_rgb(int argc, char *argv[])
 		}
 		else{
 			RGBColorSet(arrayRGB);
+			RGBEnable();
 		}
 
 	}
